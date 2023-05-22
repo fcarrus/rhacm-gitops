@@ -8,5 +8,5 @@ metadata:
     apps.open-cluster-management.io/git-path: rhacm/test  
 spec:
   channel: rhacm-policies/pacman-app-channel
-  # placement:
-  #   local: true
+  placement:
+    local: true
