@@ -9,4 +9,6 @@ metadata:
 spec:
   channel: openshift-gitops/pacman-app-channel
   placement:
-    local: true
+    clusterSelector:
+      matchLabels:
+        'name': 'local-cluster'
