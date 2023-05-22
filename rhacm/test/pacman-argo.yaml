@@ -18,30 +18,15 @@ spec:
       selfHeal: true
     syncOptions:
     - PruneLast=true
+    - CreateNamespace=true
   sources: []
   project: myproject1
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  creationTimestamp: '2023-05-22T09:54:40Z'
-  generation: 5
-  managedFields:
-    - apiVersion: argoproj.io/v1alpha1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          .: {}
-          'f:destinations': {}
-          'f:sourceRepos': {}
-        'f:status': {}
-      manager: argocd-server
-      operation: Update
-      time: '2023-05-22T09:58:11Z'
   name: myproject1
   namespace: openshift-gitops
-  resourceVersion: '140447044'
-  uid: a3b93b3d-187c-477a-9724-cddd6c41dd9e
 spec:
   destinations:
     - name: in-cluster
