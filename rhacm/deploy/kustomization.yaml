@@ -10,7 +10,7 @@ generatorOptions:
 
 # list of Resource Config to be Applied
 resources:
-  - namespace.yaml
+#  - namespace.yaml
   - channel.yaml
 #  - policies-config-cm.yaml 
   - subscription.yaml

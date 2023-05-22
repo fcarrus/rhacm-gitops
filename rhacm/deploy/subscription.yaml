@@ -2,11 +2,11 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
 metadata:
   name: pacman-app-subscription
-  namespace: pacman-acm
+  namespace: openshift-gitops
   annotations:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-path: rhacm/test  
 spec:
-  channel: pacman-acm/pacman-app-channel
+  channel: openshift-gitops/pacman-app-channel
   placement:
     local: true
