@@ -7,7 +7,7 @@ metadata:
     apps.open-cluster-management.io/git-branch: main
     apps.open-cluster-management.io/git-path: rhacm/argo  
 spec:
-  channel: pacman-acm/pacman-app-channel
+  channel: openshift-gitops/pacman-app-channel
   placement:
     clusterSelector:
       matchLabels:
