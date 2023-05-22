@@ -2,7 +2,7 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: Channel
 metadata:
-  name: gitops-demo-policies
+  name: pacman-app-channel
   namespace: rhacm-policies
   annotations:
     apps.open-cluster-management.io/reconcile-rate: medium
