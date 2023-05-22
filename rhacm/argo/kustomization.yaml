@@ -12,3 +12,4 @@ generatorOptions:
 resources:
   - pacman-namespace.yaml
   - pacman-application.yaml
+  - pacman-project.yaml

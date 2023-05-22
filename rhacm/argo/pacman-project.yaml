@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: myproject1
+  namespace: openshift-gitops
+spec:
+  destinations:
+    - name: in-cluster
+      namespace: pacman
+      server: 'https://kubernetes.default.svc'
+  sourceRepos:
+    - 'https://github.com/fcarrus/rhacm-gitops.git'
