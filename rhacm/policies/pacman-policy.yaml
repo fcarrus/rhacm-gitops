@@ -27,12 +27,26 @@ spec:
           object-templates:
             - complianceType: musthave
               objectDefinition:
+                apiVersion: argoproj.io/v1alpha1
+                kind: AppProject
+                metadata:
+                  name: myproject1
+                  namespace: openshift-gitops
+                spec:
+                  destinations:
+                    - name: in-cluster
+                      namespace: pacman
+                      server: 'https://kubernetes.default.svc'
+                  sourceRepos:
+                    - 'https://github.com/fcarrus/rhacm-gitops.git'            
+            - complianceType: musthave
+              objectDefinition:
                 kind: Namespace
                 apiVersion: v1
                 metadata:
                   name: pacman
                   argocd.argoproj.io/managed-by: openshift-gitops
-            - complianceType: musthave
+            - complianceType: MustOnlyHave
               objectDefinition:
                 apiVersion: argoproj.io/v1alpha1
                 kind: Application
@@ -56,17 +70,3 @@ spec:
                     - PruneLast=true
                   sources: []
                   project: myproject1
-            - complianceType: musthave
-              objectDefinition:
-                apiVersion: argoproj.io/v1alpha1
-                kind: AppProject
-                metadata:
-                  name: myproject1
-                  namespace: openshift-gitops
-                spec:
-                  destinations:
-                    - name: in-cluster
-                      namespace: pacman
-                      server: 'https://kubernetes.default.svc'
-                  sourceRepos:
-                    - 'https://github.com/fcarrus/rhacm-gitops.git'

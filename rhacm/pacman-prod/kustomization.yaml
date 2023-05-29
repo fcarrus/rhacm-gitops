@@ -10,6 +10,6 @@ generatorOptions:
 
 # list of Resource Config to be Applied
 resources:
-  - pacman-namespace.yaml
+#  - pacman-namespace.yaml
   - pacman-application.yaml
   - pacman-project.yaml
