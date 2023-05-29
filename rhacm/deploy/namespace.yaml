@@ -2,6 +2,6 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: pacman-acm
+  name: pacman-app-acm
   # labels:
   #   argocd.argoproj.io/managed-by: openshift-gitops
