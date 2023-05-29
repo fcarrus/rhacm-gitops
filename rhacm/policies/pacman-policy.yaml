@@ -30,7 +30,7 @@ spec:
                 kind: Namespace
                 apiVersion: v1
                 metadata:
-                  name: pacman-app
+                  name: pacman
                   argocd.argoproj.io/managed-by: openshift-gitops
             - complianceType: musthave
               objectDefinition:
