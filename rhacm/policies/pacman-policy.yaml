@@ -55,4 +55,4 @@ spec:
                     syncOptions:
                     - PruneLast=true
                   sources: []
-                  project: default
+                  project: myproject1
