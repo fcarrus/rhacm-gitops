@@ -9,8 +9,8 @@ spec:
     namespace: pacman
     server: 'https://kubernetes.default.svc'
   source:
-    path: pacman
     repoURL: 'https://github.com/fcarrus/rhacm-gitops.git'
+    path: pacman
     targetRevision: HEAD
   syncPolicy:
     automated:
@@ -19,4 +19,4 @@ spec:
     syncOptions:
     - PruneLast=true
   sources: []
-  project: myproject1
+  project: default

@@ -1,0 +1,13 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: placementbinding-pacman-on-prod
+  namespace: policies
+placementRef:
+  name: placementrule-prod-cluster
+  apiGroup: apps.open-cluster-management.io
+  kind: PlacementRule
+subjects:
+  - name: pacman-app-policy
+    apiGroup: policy.open-cluster-management.io
+    kind: Policy

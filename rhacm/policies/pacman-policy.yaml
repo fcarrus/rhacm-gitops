@@ -1,0 +1,58 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: pacman-app-policy
+  namespace: policies
+  annotations:
+    policy.open-cluster-management.io/categories: CM Configuration Management
+    policy.open-cluster-management.io/standards: ""
+    policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+spec:
+  disabled: false
+  remediationAction: enforce
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-namespace
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                kind: Namespace
+                apiVersion: v1
+                metadata:
+                  name: pacman-app
+                  argocd.argoproj.io/managed-by: openshift-gitops
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: argoproj.io/v1alpha1
+                kind: Application
+                metadata:
+                  name: pacman
+                  namespace: openshift-gitops
+                spec:
+                  destination:
+                    name: ''
+                    namespace: pacman
+                    server: 'https://kubernetes.default.svc'
+                  source:
+                    path: pacman
+                    repoURL: 'https://github.com/fcarrus/rhacm-gitops.git'
+                    targetRevision: HEAD
+                  syncPolicy:
+                    automated:
+                      prune: true
+                      selfHeal: true
+                    syncOptions:
+                    - PruneLast=true
+                  sources: []
+                  project: myproject1
